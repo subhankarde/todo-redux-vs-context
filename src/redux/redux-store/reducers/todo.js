@@ -4,7 +4,7 @@ const initialState = {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialState, action) {
-    const newState = { ...state };
+
     if (action.type === 'ADD_TODO') {
         const { id, task } = action.payload;
         return {
@@ -22,7 +22,6 @@ export default function (state = initialState, action) {
         })
         return { ...state, todos }
     }
-
-    return newState;
+    return state;
 }
 

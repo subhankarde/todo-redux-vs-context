@@ -1,9 +1,11 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useContext } from 'react'
 import Todo from './Todo'
+import { TodosContext } from '../TodosContext'
 
-const TodoList = ({ todos }) => (
-    <ul >
+function TodoList() {
+    const { todos } = useContext(TodosContext)
+    //console.log(JSON.stringify(todos, null, 2));
+    return (<ul >
         <div>
             {todos && todos.length
                 ? todos.map((todo, index) => {
@@ -11,14 +13,7 @@ const TodoList = ({ todos }) => (
                 })
                 : "No todos, yay!"}
         </div>
-    </ul>
-);
-
-const mapStateToProps = state => {
-    //console.log(JSON.stringify(state, null, 2));
-    return state.todos;
+    </ul>)
 }
 
-
-
-export default connect(mapStateToProps)(TodoList);
+export default TodoList;

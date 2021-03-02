@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../../redux/actions'
+import { addTodo } from '../redux-store/actions'
 export class AddTodo extends Component {
     constructor(props) {
         super(props);
@@ -19,8 +19,8 @@ export class AddTodo extends Component {
     render() {
         return (
             <div>
-                <input placeholder="Add Task" onChange={e => this.updateInput(e.target.value)} value={this.state.input} />
-                <button onClick={this.handleAddTodo}>Add Todo</button>
+                <input placeholder="Add Todo Using Redux" onChange={e => this.updateInput(e.target.value)} value={this.state.input} />
+                <button onClick={this.handleAddTodo}>Add Todo Using Redux</button>
             </div>
         )
     }

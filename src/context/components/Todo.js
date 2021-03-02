@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { RiCloseCircleLine, RiCheckFill } from 'react-icons/ri';
-import { connect } from 'react-redux'
-import { completeTodo } from '../../redux/actions'
+import { TodosContext } from '../TodosContext';
 
-
-const Todo = ({ todo, status, completeTodo }) => {
+const Todo = ({ todo, status }) => {
+    const { completeTodo } = useContext(TodosContext);
     return (
         <li>
             <span>{todo.task}</span>
@@ -17,4 +16,4 @@ const Todo = ({ todo, status, completeTodo }) => {
     )
 }
 
-export default connect(null, { completeTodo })(Todo);
+export default Todo;
